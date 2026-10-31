@@ -1,0 +1,613 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#10130f">
+    <title>PVP BASE — Coming Soon</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+        :root {
+            --bg: #10130f;
+            --surface: #171b16;
+            --green: #a3e66b;
+            --text: #f1f4ed;
+            --muted: #8a9285;
+            --border: rgba(255,255,255,.09);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: Inter, sans-serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1120px, calc(100% - 48px));
+            margin: auto;
+        }
+
+        /* Navigation */
+
+        nav {
+            height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 19px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--green);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-status {
+            border: 1px solid var(--border);
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 12px;
+            color: var(--green);
+        }
+
+        /* Hero */
+
+        .hero {
+            min-height: 650px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 700px;
+            height: 500px;
+            background: radial-gradient(
+                ellipse,
+                rgba(117, 182, 66, .13),
+                transparent 70%
+            );
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .grid-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+            background-size: 55px 55px;
+            mask-image: linear-gradient(to bottom, transparent, black, transparent);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: var(--green);
+            border: 1px solid rgba(163,230,107,.2);
+            background: rgba(163,230,107,.06);
+            padding: 9px 14px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 35px;
+        }
+
+        .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 12px var(--green);
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            50% { opacity: .35; }
+        }
+
+        h1 {
+            font-size: clamp(48px, 8vw, 92px);
+            line-height: .99;
+            letter-spacing: -6px;
+            font-weight: 900;
+            max-width: 900px;
+        }
+
+        h1 span {
+            color: var(--green);
+        }
+
+        .hero p {
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 510px;
+            margin: 27px auto 35px;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 23px;
+            border-radius: 5px;
+            font-size: 13px;
+            font-weight: 700;
+            transition: .2s;
+        }
+
+        .primary {
+            background: var(--green);
+            color: #11170c;
+        }
+
+        .primary:hover {
+            background: #baf58a;
+            transform: translateY(-2px);
+        }
+
+        .secondary {
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .secondary:hover {
+            background: var(--surface);
+        }
+
+        .hero-bottom {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            color: #65705f;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Intro */
+
+        .section {
+            padding: 100px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-label {
+            color: var(--green);
+            font-size: 11px;
+            letter-spacing: 2px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        h2 {
+            font-size: clamp(30px, 5vw, 48px);
+            letter-spacing: -2px;
+            line-height: 1.15;
+            max-width: 650px;
+        }
+
+        .section-desc {
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 14px;
+            max-width: 490px;
+            margin-top: 20px;
+        }
+
+        /* Features */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 55px;
+        }
+
+        .feature {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            padding: 30px;
+            transition: .2s;
+        }
+
+        .feature:hover {
+            border-color: rgba(163,230,107,.35);
+            transform: translateY(-4px);
+        }
+
+        .feature-number {
+            font-size: 11px;
+            color: var(--green);
+            font-weight: 800;
+            margin-bottom: 35px;
+        }
+
+        .feature h3 {
+            font-size: 17px;
+            margin-bottom: 12px;
+        }
+
+        .feature p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* Roadmap */
+
+        .roadmap {
+            margin-top: 45px;
+            max-width: 700px;
+        }
+
+        .roadmap-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 22px;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .roadmap-marker {
+            width: 10px;
+            height: 10px;
+            background: var(--green);
+            border-radius: 50%;
+            margin-top: 5px;
+            flex-shrink: 0;
+        }
+
+        .roadmap-marker.pending {
+            background: transparent;
+            border: 1px solid #586052;
+        }
+
+        .roadmap-item h3 {
+            font-size: 14px;
+            margin-bottom: 7px;
+        }
+
+        .roadmap-item p {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .roadmap-item small {
+            color: var(--green);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 7px;
+        }
+
+        /* CTA */
+
+        .cta {
+            text-align: center;
+            padding: 75px 30px;
+            border: 1px solid rgba(163,230,107,.18);
+            background: linear-gradient(135deg, #1b2417, #141912);
+            border-radius: 8px;
+        }
+
+        .cta h2 {
+            margin: auto;
+        }
+
+        .cta p {
+            color: var(--muted);
+            font-size: 13px;
+            margin: 18px auto 28px;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 30px 0;
+            border-top: 1px solid var(--border);
+            margin-top: 100px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        footer p, footer a {
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        footer a:hover {
+            color: var(--green);
+        }
+
+        @media(max-width: 750px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 590px;
+            }
+
+            h1 {
+                letter-spacing: -3px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 75px 0;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <a href="#" class="logo">PVP<span>BASE</span></a>
+
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#features">Features</a>
+                <a href="#roadmap">Roadmap</a>
+            </div>
+
+            <div class="nav-status">IN DEVELOPMENT</div>
+        </nav>
+    </div>
+
+    <main>
+        <section class="hero">
+            <div class="grid-bg"></div>
+
+            <div class="hero-content">
+                <div class="eyebrow">
+                    <span class="dot"></span>
+                    Something is coming
+                </div>
+
+                <h1>
+                    THE FUTURE OF<br>
+                    MINECRAFT <span>PVP.</span>
+                </h1>
+
+                <p>
+                    A new standard for Minecraft PvP.
+                    One platform. Unified kits. Consistent
+                    gameplay across every server.
+                </p>
+
+                <div class="actions">
+                    <a href="#about" class="button primary">
+                        Discover the project →
+                    </a>
+                    <a href="#roadmap" class="button secondary">
+                        View roadmap
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-bottom">
+                EST. 2026 &nbsp; / &nbsp; BUILT FOR THE COMMUNITY
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <div class="container">
+                <div class="section-label">01 — The vision</div>
+
+                <h2>
+                    PvP should be about skill.
+                    Not server differences.
+                </h2>
+
+                <p class="section-desc">
+                    Minecraft PvP is played across countless
+                    servers, each with its own kits and settings.
+                    PVP BASE aims to bring consistency to the
+                    experience through a shared standard.
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="features">
+            <div class="container">
+                <div class="section-label">02 — What we're building</div>
+
+                <h2>One ecosystem.<br>Multiple possibilities.</h2>
+
+                <div class="features">
+                    <article class="feature">
+                        <div class="feature-number">01 / KITS</div>
+                        <h3>Unified Kits</h3>
+                        <p>
+                            Standardized PvP kits that deliver
+                            consistent gameplay across participating
+                            Minecraft servers.
+                        </p>
+                    </article>
+
+                    <article class="feature">
+                        <div class="feature-number">02 / SERVERS</div>
+                        <h3>Server Integration</h3>
+                        <p>
+                            A shared foundation that allows servers
+                            to offer the same PvP experience
+                            without reinventing the wheel.
+                        </p>
+                    </article>
+
+                    <article class="feature">
+                        <div class="feature-number">03 / COMMUNITY</div>
+                        <h3>Community Driven</h3>
+                        <p>
+                            Built around the Minecraft PvP community,
+                            with a focus on accessibility,
+                            consistency and fair competition.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="roadmap">
+            <div class="container">
+                <div class="section-label">03 — Development</div>
+
+                <h2>Building something<br>worth the wait.</h2>
+
+                <p class="section-desc">
+                    PVP BASE is currently in development.
+                    Here's a look at what's ahead.
+                </p>
+
+                <div class="roadmap">
+                    <div class="roadmap-item">
+                        <div class="roadmap-marker"></div>
+                        <div>
+                            <small>In progress</small>
+                            <h3>Foundation & Concept</h3>
+                            <p>Defining the platform, its standards and core functionality.</p>
+                        </div>
+                    </div>
+
+                    <div class="roadmap-item">
+                        <div class="roadmap-marker pending"></div>
+                        <div>
+                            <small>Upcoming</small>
+                            <h3>Kit System</h3>
+                            <p>Developing the shared kit structure and specifications.</p>
+                        </div>
+                    </div>
+
+                    <div class="roadmap-item">
+                        <div class="roadmap-marker pending"></div>
+                        <div>
+                            <small>Planned</small>
+                            <h3>Server Integration</h3>
+                            <p>Bringing the platform to participating servers.</p>
+                        </div>
+                    </div>
+
+                    <div class="roadmap-item">
+                        <div class="roadmap-marker pending"></div>
+                        <div>
+                            <small>Planned</small>
+                            <h3>Public Release</h3>
+                            <p>Opening PVP BASE to the Minecraft PvP community.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="cta">
+                <div class="section-label">04 — Stay tuned</div>
+                <h2>Something big is<br>on the horizon.</h2>
+                <p>
+                    We're working behind the scenes.<br>
+                    PVP BASE is coming.
+                </p>
+                <a href="#top" class="button primary"
+                   onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">
+                    Back to top ↑
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <div class="container">
+        <footer>
+            <div class="footer-inner">
+                <a href="#" class="logo">PVP<span>BASE</span></a>
+                <p>© 2026 PVP BASE. All rights reserved.</p>
+                <a href="#about">About the project</a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
