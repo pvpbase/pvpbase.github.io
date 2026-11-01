@@ -1,5 +1,6 @@
 import("./modules/countdown.js");
 import("./modules/animations.js");
+import("./modules/project-reveal.js");
 
 const loader = document.querySelector("[data-loader]");
 const hideLoader = () => loader?.classList.add("is-hidden");

@@ -73,10 +73,10 @@
           Join our Discord
           <i data-lucide="arrow-up-right" class="button-icon" aria-hidden="true"></i>
         </a>
-        <a class="button button--outline" href="#about">
+        <button class="button button--outline" type="button" data-discover-project aria-expanded="false">
           Discover the project
           <i data-lucide="arrow-down" class="button-icon" aria-hidden="true"></i>
-        </a>
+        </button>
       </div>
     </div>
 
@@ -89,20 +89,22 @@
     </div>
   </main>
 
-  <section class="about-section" id="about">
-    <div class="section-rule"></div>
-    <div class="about-grid">
-      <div class="about-heading float-in" data-float-in>
-        <span class="eyebrow">The idea</span>
-        <h2>Different servers.<br><span>Same conditions.</span></h2>
+  <template id="project-content-template">
+    <section class="about-section project-reveal" aria-labelledby="project-heading">
+      <div class="section-rule"></div>
+      <div class="about-grid">
+        <div class="about-heading">
+          <span class="eyebrow">The idea</span>
+          <h2 id="project-heading">Different servers.<br><span>Same conditions.</span></h2>
+        </div>
+        <p class="about-copy">
+          PvPBase is being built to give Minecraft PvP servers a common place for standardized kits.
+          The goal: make matchups consistent, so the fight is decided by the players — not by
+          different server setups.
+        </p>
       </div>
-      <p class="about-copy float-in" data-float-in data-delay="120">
-        PvPBase is being built to give Minecraft PvP servers a common place for standardized kits.
-        The goal: make matchups consistent, so the fight is decided by the players — not by
-        different server setups.
-      </p>
-    </div>
-  </section>
+    </section>
+  </template>
 
   <footer class="site-footer">
     <span>© 2026 PvPBase</span>
