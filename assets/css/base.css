@@ -6,7 +6,7 @@ a { color: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 button:focus-visible, a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
 ::selection { color: var(--color-bg); background: var(--color-accent); }
-.site-shell { position: relative; isolation: isolate; overflow: hidden; }
+.site-shell { position: relative; isolation: isolate; }
 .site-background { position: fixed; z-index: -1; inset: 0; overflow: hidden; pointer-events: none; }
 .background-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.026) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.026) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(ellipse at 50% 42%, #000 0%, transparent 76%); }
 .background-glow { position: absolute; width: min(780px, 100vw); aspect-ratio: 1; top: 8%; left: 50%; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(circle, rgba(var(--color-accent-rgb), .105), transparent 68%); }
