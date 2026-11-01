@@ -1,252 +1,113 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#10120f">
-    <title>Something big is comming soon</title>
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
-        :root {
-            --bg: #10120f;
-            --text: #f2f3ef;
-            --muted: #858b80;
-            --green: #a5e66e;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            min-height: 100vh;
-            min-height: 100svh;
-            background: var(--bg);
-            color: var(--text);
-            font-family: Inter, sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Background */
-
-        .background {
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-            background-size: 60px 60px;
-            mask-image: radial-gradient(ellipse, black, transparent 75%);
-            pointer-events: none;
-        }
-
-        .glow {
-            position: absolute;
-            width: 650px;
-            height: 650px;
-            background: radial-gradient(
-                circle,
-                rgba(140, 205, 88, .10),
-                transparent 70%
-            );
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-        }
-
-        /* Content */
-
-        main {
-            position: relative;
-            z-index: 1;
-            width: 100%;
-            padding: 30px;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .status {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 9px 14px;
-            border: 1px solid rgba(165,230,110,.2);
-            background: rgba(165,230,110,.06);
-            color: var(--green);
-            border-radius: 4px;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 35px;
-        }
-
-        .status-dot {
-            width: 7px;
-            height: 7px;
-            background: var(--green);
-            border-radius: 50%;
-            box-shadow: 0 0 12px var(--green);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            50% { opacity: .3; }
-        }
-
-        h1 {
-            font-size: clamp(58px, 11vw, 115px);
-            line-height: 1;
-            font-weight: bold;
-            letter-spacing: -8px;
-        }
-
-        h1 span {
-            color: var(--green);
-        }
-
-        .subtitle {
-            color: var(--muted);
-            font-size: 15px;
-            line-height: 1.8;
-            max-width: 430px;
-            margin-top: 25px;
-        }
-
-        .divider {
-            width: 35px;
-            height: 2px;
-            background: var(--green);
-            margin: 35px 0;
-        }
-
-        .discord {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 20px;
-            border: 1px solid rgba(255,255,255,.12);
-            border-radius: 5px;
-            color: var(--text);
-            font-size: 12px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: .2s;
-        }
-
-        .discord:hover {
-            border-color: var(--green);
-            background: rgba(165,230,110,.06);
-            transform: translateY(-2px);
-        }
-
-        .discord svg {
-            width: 17px;
-            height: 17px;
-            fill: currentColor;
-        }
-
-        /* Footer */
-
-        footer {
-            position: absolute;
-            bottom: 28px;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            color: #555c51;
-            font-size: 10px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-
-        @media(max-width: 600px) {
-            h1 {
-                letter-spacing: -4px;
-            }
-
-            .subtitle {
-                font-size: 13px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10120f">
+  <meta name="description" content="PvPBase — a shared foundation for Minecraft PvP. Sneak peeks coming November 1st, 2026.">
+  <title>PvPBase — Something new is coming</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <script>tailwind = { config: { corePlugins: { preflight: false } } };</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script src="assets/js/main.js" defer></script>
 </head>
+<body class="site-shell">
+  <div class="page-loader" data-loader aria-hidden="true">
+    <div class="loader-mark">PvP<span>Base</span></div>
+    <div class="loader-track"><span></span></div>
+  </div>
 
-<body>
-    <div class="background"></div>
-    <div class="glow"></div>
+  <div class="site-background" aria-hidden="true">
+    <div class="background-grid"></div>
+    <div class="background-glow"></div>
+    <div class="background-orb background-orb--one"></div>
+    <div class="background-orb background-orb--two"></div>
+  </div>
 
-    <main>
-        <div class="status">
-            <span class="status-dot"></span>
-            Currently under construction
+  <header class="site-header float-in" data-float-in>
+    <a class="brand" href="#" aria-label="PvPBase home">PvP<span>Base</span><i class="brand-mark"></i></a>
+    <span class="header-label">A shared standard for Minecraft PvP</span>
+    <a class="button button--quiet button--small" href="https://dsc.gg/pvpbase" target="_blank" rel="noopener noreferrer">
+      <i class="fa-brands fa-discord" aria-hidden="true"></i>
+      <span>Discord</span>
+      <i data-lucide="arrow-up-right" class="button-icon" aria-hidden="true"></i>
+    </a>
+  </header>
+
+  <main class="hero">
+    <div class="hero-content">
+      <div class="status-pill float-in" data-float-in data-delay="100">
+        <span class="status-indicator"></span>
+        <span>Currently under construction</span>
+      </div>
+
+      <p class="eyebrow float-in" data-float-in data-delay="180">One standard. Every server.</p>
+      <h1 class="hero-title float-in" data-float-in data-delay="260">PvP<span>Base</span><span class="title-period">.</span></h1>
+      <p class="hero-description float-in" data-float-in data-delay="360">
+        We're building something new for the Minecraft PvP community.
+        A shared foundation for kits, fair fights and consistent gameplay.
+      </p>
+
+      <div class="announcement-card float-in" data-float-in data-delay="440">
+        <div class="announcement-icon"><i data-lucide="calendar-days" aria-hidden="true"></i></div>
+        <div class="announcement-copy">
+          <span class="announcement-label">Next sneak peeks</span>
+          <strong>November 1st, 2026</strong>
         </div>
+        <div class="countdown" id="countdown" data-countdown data-date="2026-11-01T18:00:00+01:00" aria-live="off">
+          <span><b data-days>--</b><small>days</small></span>
+          <span><b data-hours>--</b><small>hours</small></span>
+          <span><b data-minutes>--</b><small>min</small></span>
+          <span><b data-seconds>--</b><small>sec</small></span>
+        </div>
+      </div>
 
-        <h1>PvP<span>Base</span></h1>
-
-        <p class="subtitle">
-            We're building something new for the
-            Minecraft PvP community.<br>
-            More Sneak Peeks comming November 1st, 2026.
-            <br>
-            <span id="demo"></span>
-        </p>
-
-        <div class="divider"></div>
-
-        <a class="discord" href="https://dsc.gg/pvpbase" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24">
-                <path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3a13.7 13.7 0 0 0-.6 1.2 18.4 18.4 0 0 0-5.6 0A13.7 13.7 0 0 0 8.6 3a19.8 19.8 0 0 0-4.9 1.4C.6 8.9-.2 13.3.2 17.7a20 20 0 0 0 6 3.1l1.3-2.1-2-1 0 0a14 14 0 0 0 12.9 0l0 0-2 1 1.3 2.1a20 20 0 0 0 6-3.1c.5-5.1-.8-9.5-3.4-13.3ZM8 14.8c-1.2 0-2.1-1.1-2.1-2.4S6.8 10 8 10s2.1 1.1 2.1 2.4-.9 2.4-2.1 2.4Zm8 0c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4 2.1 1.1 2.1 2.4-.9 2.4-2.1 2.4Z"/>
-            </svg>
-            Join our Discord
+      <div class="hero-actions float-in" data-float-in data-delay="520">
+        <a class="button button--primary" href="https://dsc.gg/pvpbase" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-discord" aria-hidden="true"></i>
+          Join our Discord
+          <i data-lucide="arrow-up-right" class="button-icon" aria-hidden="true"></i>
         </a>
-    </main>
+        <a class="button button--outline" href="#about">
+          Discover the project
+          <i data-lucide="arrow-down" class="button-icon" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
 
-    <footer>
-        © 2026 PvPBase
-    </footer>
+    <div class="hero-decoration" aria-hidden="true">
+      <div class="orbit orbit--outer"></div>
+      <div class="orbit orbit--inner"></div>
+      <div class="orbit-core"><span>PB</span></div>
+      <span class="decoration-tag decoration-tag--top">KIT / 001</span>
+      <span class="decoration-tag decoration-tag--bottom">STANDARDIZED PVP</span>
+    </div>
+  </main>
 
-<script>
-// Set the date we're counting down to
-var countDownDate = new Date("Nov 1, 2026 18:00:00").getTime();
+  <section class="about-section" id="about">
+    <div class="section-rule"></div>
+    <div class="about-grid">
+      <div class="about-heading float-in" data-float-in>
+        <span class="eyebrow">The idea</span>
+        <h2>Different servers.<br><span>Same conditions.</span></h2>
+      </div>
+      <p class="about-copy float-in" data-float-in data-delay="120">
+        PvPBase is being built to give Minecraft PvP servers a common place for standardized kits.
+        The goal: make matchups consistent, so the fight is decided by the players — not by
+        different server setups.
+      </p>
+    </div>
+  </section>
 
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-  // Get today's date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-  // Output the result in an element with id="demo"
-  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-    
-  // If the count down is over, write some text 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
-  }
-}, 1000);
-</script>
+  <footer class="site-footer">
+    <span>© 2026 PvPBase</span>
+    <span class="footer-center">Built for the PvP community</span>
+    <a href="https://dsc.gg/pvpbase" target="_blank" rel="noopener noreferrer">Join the community <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+  </footer>
 </body>
 </html>
