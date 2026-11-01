@@ -27,3 +27,8 @@ The animation stylesheet respects `prefers-reduced-motion: reduce`. Keep the fal
 - `--ease-out`
 
 Use short transitions for controls and longer entrance animations for content. Avoid animating layout-heavy properties when transform and opacity are sufficient.
+
+
+## On-demand content reveal
+
+Use a `<template>` for content that should not exist in the document until requested. A button with `data-discover-project` clones the template, inserts it after the hero, reveals it with opacity and transform, and scrolls it into view. This does not change the URL or create a hash fragment. Keep the reduced-motion fallback.
