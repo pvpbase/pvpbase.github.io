@@ -1,0 +1,19 @@
+@keyframes status-pulse { 50% { opacity: .35; transform: scale(.82); } }
+@keyframes loader-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes loader-exit { to { opacity: 0; visibility: hidden; } }
+@keyframes float-in { from { opacity: 0; transform: translate3d(0, 22px, 0); } to { opacity: 1; transform: translate3d(0, 0, 0); } }
+@keyframes orbit-spin { to { transform: rotate(360deg); } }
+@keyframes orbit-spin-reverse { to { transform: rotate(-360deg); } }
+.page-loader { position: fixed; z-index: 1000; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; background: var(--color-bg); transition: opacity .45s ease, visibility .45s ease; }
+.page-loader.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.loader-mark { font-size: 25px; font-weight: 900; letter-spacing: -1.5px; }
+.loader-mark span { color: var(--color-accent); }
+.loader-track { width: 112px; height: 2px; overflow: hidden; background: rgba(255,255,255,.1); }
+.loader-track span { display: block; width: 100%; height: 100%; transform-origin: left; background: var(--color-accent); animation: loader-progress 1s var(--ease-out) both; }
+[data-float-in] { opacity: 0; transform: translateY(22px); }
+[data-float-in].is-visible { animation: float-in .72s var(--ease-out) both; animation-delay: var(--float-delay, 0ms); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  [data-float-in] { opacity: 1; transform: none; }
+  .page-loader { display: none; }
+}
