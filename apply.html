@@ -1,12 +1,122 @@
-<!--
-Source - https://stackoverflow.com/a/27895590
-Posted by Prashant Shastri, modified by community. See post 'Timeline' for change history
-Retrieved 2026-11-06, License - CC BY-SA 4.0
--->
-
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 <head>
-  <title>Apply now for PvPBase Season 1!</title>
-  <meta http-equiv='refresh' content='0; URL=https://forms.gle/UsadV2XjUSN6Fn8HA'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PvPBase Applications</title>
+
+    <!-- DaisyUI + Tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
-<a href="https://forms.gle/UsadV2XjUSN6Fn8HA">If the redirect doesn't work, click this link instead.</a>
+<body class="min-h-screen bg-base-200 text-base-content">
+
+    <div class="min-h-screen flex flex-col">
+
+        <!-- Header -->
+        <header class="navbar bg-base-100 border-b border-base-300 px-6">
+            <div class="max-w-6xl w-full mx-auto">
+                <a href="/" class="flex items-center gap-3 text-lg font-bold tracking-tight">
+                    <i class="fa-solid fa-shield-halved text-primary"></i>
+                    <span>PvPBase</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- Main -->
+        <main class="flex-1 flex items-center justify-center px-4 py-16">
+
+            <section class="w-full max-w-sm">
+
+                <!-- Heading -->
+                <div class="mb-7">
+                    <h1 class="text-3xl font-bold tracking-tight">
+                        Welcome back!
+                    </h1>
+
+                    <p class="text-base-content/60 mt-2">
+                        Apply now to the newest PvPBase Season.
+                    </p>
+                </div>
+
+                <!-- Login Card -->
+                <div class="card bg-base-100 border border-base-300 shadow-sm">
+                    <div class="card-body gap-4 p-6">
+
+                        <div>
+                            <h2 class="font-semibold">
+                                Sign-Up
+                            </h2>
+
+                            <p class="text-sm text-base-content/50 mt-1">
+                                Choose your preferred application method.
+                            </p>
+                        </div>
+
+                        <!-- Google -->
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeI2TlvFfsMMKcIavWWe91KuvuAMwvavYuBUTD5IkgPnTd1yg/viewform?usp=dialog" class="btn btn-primary w-full">
+                            <i class="fa-brands fa-google"></i>
+                            Continue with Google
+                        </a>
+
+                        <!-- Email -->
+                        <a disabled href="#" class="btn btn-outline w-full">
+                            <i class="fa-regular fa-envelope"></i>
+                            Continue with Email
+                        </a>
+
+                        <div class="divider text-xs text-base-content/40 my-0">
+                            OR
+                        </div>
+
+                        <!-- Secret Key -->
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScUBf35xDSFnuxNQc9C89obyrzw60Ys8jeJIqZS3LqKjGVMAA/viewform?usp=dialog" class="btn btn-ghost border border-base-300 w-full">
+                            <i class="fa-solid fa-key"></i>
+                            Sign in with Secret Key
+                        </a>
+
+                        <!-- Security Info -->
+                        <div class="alert bg-base-200 border border-base-300 text-sm mt-2">
+                            <i class="fa-solid fa-shield-halved text-primary"></i>
+
+                            <span class="text-base-content/70">
+                                Your data is protected. Your credentials are handled securely.
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Terms -->
+                <p class="text-xs text-base-content/50 text-center mt-6 leading-relaxed">
+                    By continuing, you agree to the applicable
+                    <a href="#" class="link link-hover">Terms of Service</a>
+                    and
+                    <a href="#" class="link link-hover">Privacy Policy</a>.
+                </p>
+
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="border-t border-base-300 bg-base-100">
+            <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-base-content/50">
+                <span>© 2026 PvPBase</span>
+
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check text-success"></i>
+                    All systems operational
+                </span>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
